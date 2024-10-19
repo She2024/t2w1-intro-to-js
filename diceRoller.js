@@ -1,6 +1,12 @@
 console.log("Start of the Dice Roller!!");
 
 // simple dice roller function (local scope only defined inside this)
+//JSDoc comment  enter/** */ then enter the details of what the function does see jsdoc.app for more info and examples
+/**
+ * Example JSDoc comment - simple dice roller
+ * @param {*} diceSize 
+ * @returns 
+ */
 function rollDice(diceSize = 6) {
     console.log(`Rolling a ${diceSize}-sided die...`);
     let diceSide = Math.ceil(Math.random() * diceSize);
@@ -21,6 +27,8 @@ rollDice(20);
 
 //  Specific dice roller function that calls the simple function
 // Using Function Expression
+
+/** Description placeholder */
 const rollDice25 = function () {
     rollDice(25);
 }
