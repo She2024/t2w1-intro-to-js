@@ -1,6 +1,6 @@
 console.log("Start of the Dice Roller!!");
 
-// simple dice roller function
+// simple dice roller function (local scope only defined inside this)
 function rollDice(diceSize = 6) {
     console.log(`Rolling a ${diceSize}-sided die...`);
     let diceSide = Math.ceil(Math.random() * diceSize);
@@ -43,4 +43,24 @@ console.log("The side you rolled in this 15-sided die is: " + diceSide15);
 // If we want more functionality, then we use the {}, otherwise we can use the shortened version
 const rollDice8 = () => rollDice(8);
 console.log("The side you rolled for the 8-sided die is: " + rollDice8());
+
+
+// Implementing the callback feature/functionality/characteristic of function
+function customDiceRoll(side, callback) {
+    return callback(side); // rollDice(30);
+}
+
+result = customDiceRoll(30, rollDice);
+console.log(result);
+
+// Example of hoisting
+rollMultipleDice(3, 6, (result) => console.log("Rolled: " + result));
+
+// Function to roll multiple dice
+function rollMultipleDice(numDice, diceSize, callback) {
+    for (let i=0; i < numDice ; i++) {
+        const result = rollDice(diceSize);
+        callback(result);
+    }
+}
 
